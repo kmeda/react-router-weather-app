@@ -35,32 +35,17 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   module: {
-    rules: [{
-      test: /\.jsx$/,
-      exclude: /(node_modules|bower_components)/,
-      use: [{
-        loader: 'react-hot-loader'
-      }, {
+    loaders: [
+      {
+        test: /\.jsx?$/,
         loader: 'babel-loader',
-        options: {
-          babelrc: false,
-          presets: ['es2015','stage-0','react']
-        }
-      }]
-    }]
-  },
+        query: {
+          presets: ['react', 'es2015', 'stage-0']
+          },
+        exclude: /(node_modules|bower_components)/
+      }
+    ]
+  }
+,
   devtool: 'cheap-module-eval-source-map'
 };
-
-// module: {
-//   loaders: [
-//     {
-//       test: /\.jsx?$/,
-//       loader: 'babel-loader',
-//       query: {
-//         presets: ['react', 'es2015', 'stage-0']
-//         },
-//       exclude: /(node_modules|bower_components)/
-//     }
-//   ]
-// }
