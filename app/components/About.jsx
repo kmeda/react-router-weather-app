@@ -4,7 +4,7 @@ var About = (props)=>{
 
     return (
       <div>
-        <h1 className='text-center'>About</h1>
+        <h1 className='text-center page_title'>About</h1>
         <p>This is a weather application buit on React. I have built this to ge the hang of React.</p>
         <p>Here are some of the tools I used:</p>
         <ul>

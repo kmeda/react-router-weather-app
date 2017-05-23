@@ -32,9 +32,29 @@ var Weather = React.createClass({
         isLoading: false,
         errorMessage: e.message
       });
-
-      alert(JSON.stringify(e));
     });
+  },
+
+  componentDidMount: function () {
+    console.log("On Mount: ");
+    console.log(this.props);
+    var location = this.props.location.query.location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
+
+  componentWillReceiveProps: function(newProps){
+    console.log("On receiving props: ");
+    console.log(newProps);
+    var location = newProps.location.query.location;
+
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
   },
 
   render: function() {
@@ -61,7 +81,7 @@ var Weather = React.createClass({
 
       return (
         <div>
-          <h1 className='text-center'>Get Weather</h1>
+          <h1 className='text-center page_title'>Get Weather</h1>
           <WeatherForm onSearch={this.handleSearch}/>
           {renderMessage()}
           {renderError()}
