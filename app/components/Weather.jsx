@@ -36,8 +36,7 @@ var Weather = React.createClass({
   },
 
   componentDidMount: function () {
-    console.log("On Mount: ");
-    console.log(this.props);
+
     var location = this.props.location.query.location;
 
     if (location && location.length > 0) {
@@ -47,8 +46,6 @@ var Weather = React.createClass({
   },
 
   componentWillReceiveProps: function(newProps){
-    console.log("On receiving props: ");
-    console.log(newProps);
     var location = newProps.location.query.location;
 
     if (location && location.length > 0) {

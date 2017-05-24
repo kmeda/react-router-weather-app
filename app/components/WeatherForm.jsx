@@ -1,6 +1,9 @@
 var React = require('react');
 
 var WeatherForm = React.createClass({
+  componentDidMount(){
+   this.refs.location.focus();
+},
 
   onFormSubmit: function(e){
     e.preventDefault();
@@ -15,7 +18,7 @@ var WeatherForm = React.createClass({
     return (
       <div>
         <form onSubmit={this.onFormSubmit}>
-          <input type="text" ref="location" placeholder="Search by city"/>
+          <input type="text" ref="location" placeholder="Search by city" autofocus=""/>
           <button className='button expanded hollow'>Get Weather</button>
         </form>
       </div>
